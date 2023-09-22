@@ -1,0 +1,36 @@
+version: '3.1'
+
+services:
+  backend:
+    build:
+      context: .
+    command: /bin/sh -c "dart --enable-vm-service bin/application.dart"
+    env_file:
+      - .env.backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      WAIT_HOSTS: db:5432
+    volumes:
+      - /app
+
+  db:
+    image: postgres
+    restart: always
+    env_file:
+      - .env.db
+    ports: 
+      - 5435:5432
+    volumes:
+      - pg_data:/var/lib/postgresql/data/
+
+  adminer:
+    image: adminer
+    restart: always
+    ports: 
+      - 8082:8080
+
+volumes:
+  pg_data:
