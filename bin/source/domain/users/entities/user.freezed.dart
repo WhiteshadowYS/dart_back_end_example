@@ -21,7 +21,7 @@ User _$UserFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$User {
   int get id => throw _privateConstructorUsedError;
-  String? get fullName => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +34,7 @@ abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res, User>;
   @useResult
-  $Res call({int id, String? fullName, String email});
+  $Res call({int id, String? name, String email});
 }
 
 /// @nodoc
@@ -51,7 +51,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   @override
   $Res call({
     Object? id = null,
-    Object? fullName = freezed,
+    Object? name = freezed,
     Object? email = null,
   }) {
     return _then(_value.copyWith(
@@ -59,9 +59,9 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      fullName: freezed == fullName
-          ? _value.fullName
-          : fullName // ignore: cast_nullable_to_non_nullable
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
       email: null == email
           ? _value.email
@@ -77,7 +77,7 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       __$$_UserCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String? fullName, String email});
+  $Res call({int id, String? name, String email});
 }
 
 /// @nodoc
@@ -90,7 +90,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
   @override
   $Res call({
     Object? id = null,
-    Object? fullName = freezed,
+    Object? name = freezed,
     Object? email = null,
   }) {
     return _then(_$_User(
@@ -98,9 +98,9 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      freezed == fullName
-          ? _value.fullName
-          : fullName // ignore: cast_nullable_to_non_nullable
+      freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
       null == email
           ? _value.email
@@ -114,20 +114,20 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
 
 @JsonSerializable()
 class _$_User implements _User {
-  _$_User(this.id, this.fullName, this.email);
+  _$_User(this.id, this.name, this.email);
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
   @override
   final int id;
   @override
-  final String? fullName;
+  final String? name;
   @override
   final String email;
 
   @override
   String toString() {
-    return 'User(id: $id, fullName: $fullName, email: $email)';
+    return 'User(id: $id, name: $name, email: $email)';
   }
 
   @override
@@ -136,14 +136,13 @@ class _$_User implements _User {
         (other.runtimeType == runtimeType &&
             other is _$_User &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.fullName, fullName) ||
-                other.fullName == fullName) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.email, email) || other.email == email));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, fullName, email);
+  int get hashCode => Object.hash(runtimeType, id, name, email);
 
   @JsonKey(ignore: true)
   @override
@@ -160,15 +159,14 @@ class _$_User implements _User {
 }
 
 abstract class _User implements User, BaseUser {
-  factory _User(final int id, final String? fullName, final String email) =
-      _$_User;
+  factory _User(final int id, final String? name, final String email) = _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
   @override
   int get id;
   @override
-  String? get fullName;
+  String? get name;
   @override
   String get email;
   @override

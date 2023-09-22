@@ -12,5 +12,9 @@ Router _$UsersRouterRouter(UsersRouter service) {
     r'/current/',
     service._current.call,
   );
+  router.mount(
+    r'/user/',
+    service._user.call,
+  );
   return router;
 }

@@ -9,7 +9,7 @@ part 'user.g.dart';
 class User with _$User implements BaseUser {
   @JsonSerializable()
   @Implements<BaseUser>()
-  factory User(int id, String? fullName, String email) = _User;
+  factory User(int id, String? name, String email) = _User;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 }

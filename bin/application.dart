@@ -4,13 +4,14 @@ import 'package:shelf/shelf.dart';
 import 'package:shelf/shelf_io.dart';
 import 'package:shelf_hotreload/shelf_hotreload.dart';
 
+import 'config/config.dart';
 import 'config/router.dart';
 
 void main(List<String> args) async {
   /// ORM
-  /// Specification
-  ///
   withHotreload(() async {
+    initDependencies();
+
     final pipeline = Pipeline().addMiddleware(logRequests());
     final handler = pipeline.addHandler(MainRouter().router);
 
